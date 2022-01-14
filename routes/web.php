@@ -25,11 +25,11 @@ Auth::routes();
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/index', [HomeController::class, 'index'])->name('home');
     // category
-    Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+    Route::get('/categories/list', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
     Route::post('/categories/store', [CategoryController::class, 'store'])->name('categories.store');
-    Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
-    Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    Route::post('/categories/update/{category}', [CategoryController::class, 'update'])->name('categories.update');
+    Route::get('/categories/delete/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
     
 });
 
