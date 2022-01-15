@@ -22,6 +22,13 @@
                     <li class="{{Str::contains(Request::fullUrl(), 'categories/create') ? 'active' : ''}}"><a class="nav-link" href="{{route('categories.create')}}">Tambah Kategori</a></li>
                 </ul>
             </li>
+            <li class="nav-item dropdown {{Str::contains(Request::fullUrl(), 'brands') ? 'active' : ''}}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Merek</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{Str::contains(Request::fullUrl(), 'brands/list') ? 'active' : ''}}"><a class="nav-link" href="{{route('brands.index')}}">List Merek</a></li>
+                    <li class="{{Str::contains(Request::fullUrl(), 'brands/create') ? 'active' : ''}}"><a class="nav-link" href="{{route('brands.create')}}">Tambah Merek</a></li>
+                </ul>
+            </li>
         </ul>
     </aside>
 </div>

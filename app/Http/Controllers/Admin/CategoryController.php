@@ -58,9 +58,8 @@ class CategoryController extends Controller
         $category->name = $request->name;
 
         if($request->hasFile('picturePath')){
-            $pictureFrom = str_replace(config('app.url')."/", "", $category->picturePath);
-            if (file_exists($pictureFrom)) {
-                unlink($pictureFrom);
+            if (file_exists($category->path_image)) {
+                unlink($category->path_image);
             }
             $imagee = $request->picturePath;
             $image_name = time().'-'.$imagee->getClientOriginalName();
