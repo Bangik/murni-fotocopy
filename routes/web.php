@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\UnitController;
 use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::post('/brands/store', [BrandController::class, 'store'])->name('brands.store');
     Route::post('/brands/update/{brand}', [BrandController::class, 'update'])->name('brands.update');
     Route::get('/brands/delete/{brand}', [BrandController::class, 'destroy'])->name('brands.destroy');
+
+    // unit
+    Route::get('/units/list', [UnitController::class, 'index'])->name('units.index');
+    Route::get('/units/create', [UnitController::class, 'create'])->name('units.create');
+    Route::post('/units/store', [UnitController::class, 'store'])->name('units.store');
+    Route::post('/units/update/{unit}', [UnitController::class, 'update'])->name('units.update');
+    Route::get('/units/delete/{unit}', [UnitController::class, 'destroy'])->name('units.destroy');
 
 });
 
