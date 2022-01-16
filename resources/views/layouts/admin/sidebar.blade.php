@@ -36,6 +36,14 @@
                     <li class="{{Str::contains(Request::fullUrl(), 'units/create') ? 'active' : ''}}"><a class="nav-link" href="{{route('units.create')}}">Tambah Satuan</a></li>
                 </ul>
             </li>
+            <li class="nav-item dropdown {{Str::contains(Request::fullUrl(), 'products') ? 'active' : ''}}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Produk</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{Str::contains(Request::fullUrl(), 'products/list') ? 'active' : ''}}"><a class="nav-link" href="{{route('products.index')}}">List Produk</a></li>
+                    <li class="{{Str::contains(Request::fullUrl(), 'products/create') ? 'active' : ''}}"><a class="nav-link" href="{{route('products.create')}}">Tambah Produk</a></li>
+                    <li class="{{Str::contains(Request::fullUrl(), 'products/trashed') ? 'active' : ''}}"><a class="nav-link" href="{{route('products.trashed')}}">List Sampah Produk</a></li>
+                </ul>
+            </li>
         </ul>
     </aside>
 </div>

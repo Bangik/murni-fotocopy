@@ -35,8 +35,8 @@
                                             <td> <img src="{{asset($category->path_image)}}" alt="image" width="50px" height="50px"> </td>
                                             <td>{{$category->name}}</td>
                                             <td>
-                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-ubah-{{$loop->iteration}}">Ubah</button>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-hapus-{{$loop->iteration}}">Hapus</button>
+                                                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal-ubah-{{$loop->iteration}}"><i class="fa fa-edit"></i></button>
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-hapus-{{$loop->iteration}}"><i class="fa fa-trash"></i></button>
                                             </td>
                                         </tr>
                                         @endforeach

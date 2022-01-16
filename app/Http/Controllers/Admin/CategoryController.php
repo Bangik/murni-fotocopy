@@ -48,6 +48,17 @@ class CategoryController extends Controller
         return redirect()->route('categories.index');
     }
 
+    public function storeAjax(Request $request){
+        $this->validate($request,[
+            'name' => 'required|max:150',
+        ]);
+
+        $category = new Category();
+        $category->name = $request->name;
+        $category->save();
+        return $category;
+    }
+
     public function update($category, Request $request){
         $this->validate($request,[
             'name' => 'required|max:150',

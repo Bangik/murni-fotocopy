@@ -45,6 +45,17 @@ class BrandController extends Controller
         return redirect()->route('brands.index');
     }
 
+    public function storeAjax(Request $request){
+        $this->validate($request,[
+            'name' => 'required|max:150',
+        ]);
+
+        $brand = new Brand();
+        $brand->brand = $request->name;
+        $brand->save();
+        return $brand;
+    }
+
     public function update($brand, Request $request){
         $this->validate($request,[
             'brand' => 'required|max:150',

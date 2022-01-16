@@ -36,6 +36,17 @@ class UnitController extends Controller
         return redirect()->route('units.index');
     }
 
+    public function storeAjax(Request $request){
+        $this->validate($request,[
+            'name' => 'required|max:150',
+        ]);
+
+        $unit = new Unit();
+        $unit->name = $request->name;
+        $unit->save();
+        return $unit;
+    }
+
     public function update($unit, Request $request){
         $this->validate($request,[
             'name' => 'required|max:150',

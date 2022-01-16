@@ -22,6 +22,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
+    @yield('css-admin')
 </head>
 <body>
     <div id="app">
