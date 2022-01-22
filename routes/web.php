@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\UnitController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -61,6 +62,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/products/restore/{id}', [ProductController::class, 'restore'])->name('products.restore');
     Route::get('/products/delete/{id}', [ProductController::class, 'delete'])->name('products.delete');
     Route::get('/products/destroy/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+    
+    // transaction
+    Route::get('/transactions/list', [TransactionController::class, 'index'])->name('transactions.index');
+    Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
+    Route::get('/transactions/nota/{id}', [TransactionController::class, 'nota'])->name('transactions.nota');
+    Route::post('/transactions/store', [TransactionController::class, 'store'])->name('transactions.store');
+    Route::get('/transactions/edit/{id}', [TransactionController::class, 'edit'])->name('transactions.edit');
+    Route::post('/transactions/update/{id}', [TransactionController::class, 'update'])->name('transactions.update');
+    Route::get('/transactions/delete/{id}', [TransactionController::class, 'delete'])->name('transactions.delete');
 
 });
 

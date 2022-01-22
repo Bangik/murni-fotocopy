@@ -14,6 +14,14 @@
                     <li class="{{Str::contains(Request::fullUrl(), 'index') ? 'active' : ''}}"><a class="nav-link" href="{{route('home')}}">Ecommerce Dashboard</a></li>
                 </ul>
             </li>
+            <li class="menu-header">Transaksi</li>
+            <li class="nav-item dropdown {{Str::contains(Request::fullUrl(), 'transactions') ? 'active' : ''}}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Transaksi</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{Str::contains(Request::fullUrl(), 'transactions/create') ? 'active' : ''}}"><a class="nav-link" href="{{route('transactions.create')}}">Buat Transaksi</a></li>
+                    <li class="{{Str::contains(Request::fullUrl(), 'transactions/list') ? 'active' : ''}}"><a class="nav-link" href="{{route('transactions.index')}}">Riwayat Transaksi</a></li>
+                </ul>
+            </li>
             <li class="menu-header">Data Produk</li>
             <li class="nav-item dropdown {{Str::contains(Request::fullUrl(), 'categories') ? 'active' : ''}}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kategori</span></a>

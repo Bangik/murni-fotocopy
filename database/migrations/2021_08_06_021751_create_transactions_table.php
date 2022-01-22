@@ -17,6 +17,8 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->integer('total');
+            $table->integer('pay');
+            $table->integer('changes');
             $table->integer('bonus')->nullable();
             $table->string('status', 30);
             $table->text('payment_url')->nullable();

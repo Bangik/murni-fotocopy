@@ -41,4 +41,9 @@ class Product extends Model
     {
         return $this->belongsTo(Unit::class);
     }
+
+    public function detailsTransaction()
+    {
+        return $this->hasMany(DetailTransaction::class);
+    }
 }
