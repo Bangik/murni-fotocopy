@@ -212,7 +212,7 @@
             $('.total').html(0);
             $('.subtotal').val(0);
             $('.product').val('').trigger('change');
-            $('.quantity').val(0);
+            $('.quantity').val(1);
             $('.added-product').remove();
             $('.select2').select2();
         }

@@ -187,7 +187,7 @@
                         <div class="invoice-price-right">
                             <p>Total <span class="pull-right font-weight-bold">@currency($transaction->total)</span> </p>
                             <p>Bayar <span class="pull-right"> @currency($transaction->pay) </span></p> 
-                            @if($transaction->changes > 0)
+                            @if($transaction->changes >= 0)
                             <p>Kembali <span class="pull-right"> @currency($transaction->changes) </span></p>
                             @else
                             <p>Kurang <span class="pull-right"> @currency($transaction->changes) </span></p>

@@ -17,8 +17,16 @@ class TransactionController extends Controller
 
     public function index()
     {
-        $transactions = Transaction::all();
+        $transactions = Transaction::all()->sortByDesc('id');
         return view('admin.transaction.index', compact('transactions'));
+    }
+
+    public function detail($id)
+    {
+        $transaction = Transaction::findOrFail($id);
+        $details = DetailTransaction::where('transaction_id', $id)->get();
+        // dd($details);
+        return view('admin.transaction.detail', compact('details', 'transaction'));
     }
 
     public function create()
@@ -60,5 +68,21 @@ class TransactionController extends Controller
         $transaction = Transaction::find($id);
         $details = DetailTransaction::where('transaction_id', $transaction->id)->get();
         return view('admin.transaction.nota', compact('transaction', 'details'));
+    }
+
+    public function update(Request $request, $id){
+        $transaction = Transaction::find($id);
+        $transaction->status = $request->status;
+        $transaction->pay = $request->pay;
+        $transaction->changes = $request->changes;
+        $transaction->save();
+        return $transaction;
+    }
+
+    public function delete($id)
+    {
+        $transaction = Transaction::find($id);
+        $transaction->delete();
+        return redirect()->route('transactions.index');
     }
 }

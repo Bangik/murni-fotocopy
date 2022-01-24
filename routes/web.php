@@ -65,10 +65,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     
     // transaction
     Route::get('/transactions/list', [TransactionController::class, 'index'])->name('transactions.index');
+    Route::get('/transactions/detail/{id}', [TransactionController::class, 'detail'])->name('transactions.detail');
     Route::get('/transactions/create', [TransactionController::class, 'create'])->name('transactions.create');
     Route::get('/transactions/nota/{id}', [TransactionController::class, 'nota'])->name('transactions.nota');
     Route::post('/transactions/store', [TransactionController::class, 'store'])->name('transactions.store');
-    Route::get('/transactions/edit/{id}', [TransactionController::class, 'edit'])->name('transactions.edit');
     Route::post('/transactions/update/{id}', [TransactionController::class, 'update'])->name('transactions.update');
     Route::get('/transactions/delete/{id}', [TransactionController::class, 'delete'])->name('transactions.delete');
 
