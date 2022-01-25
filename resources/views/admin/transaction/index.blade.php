@@ -36,9 +36,9 @@
                                         <tr>
                                             <td>{{$transaction->id}}</td>
                                             <td>{{date('D, d M Y - H.i', strtotime($transaction->created_at))}}</td>
-                                            <td>{{$transaction->total}}</td>
-                                            <td>{{$transaction->pay}}</td>
-                                            <td>{{$transaction->changes}}</td>
+                                            <td>@currency($transaction->total)</td>
+                                            <td>@currency($transaction->pay)</td>
+                                            <td>@currency($transaction->changes)</td>
                                             <td>{{$transaction->status}}</td>
                                             <td>
                                                 <a href="{{route('transactions.detail', ['id' => $transaction->id])}}" class="btn btn-primary"><i class="fa fa-info"></i></a>

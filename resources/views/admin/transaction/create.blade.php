@@ -120,6 +120,12 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $(document).ready(function() {
+        const rupiah = (number)=>{
+            return new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR"
+            }).format(number);
+        };
         $('.select2').select2();
         $('.add-product').click(function() {
             let product = $('#product').html();
@@ -151,7 +157,7 @@
             $('.subtotal').each(function(index, el) {
                 total += $(this).val() - 0;
             });
-            $('.total').html(total);
+            $('.total').html(rupiah(total));
             $('#total').val(total);
         }
 
@@ -181,7 +187,7 @@
         });
 
         $('.pay').on('keyup click',function() {
-            let total = $('.total').html();
+            let total = $('#total').val();
             let pay = $('.pay').val();
             let change = pay - total;
             $('.change').val(change);
@@ -229,7 +235,7 @@
             $('#status').val('bon');
             submitPayment();
             clearForm();
-        });
+        });        
     });
 </script>
 @endsection

@@ -42,8 +42,6 @@ class TransactionController extends Controller
             'total' => 'required',
         ]);
 
-        // dd($request->all());
-
         $transaction = Transaction::create([
             'user_id' => auth()->user()->id,
             'total' => $request->total,
@@ -58,6 +56,9 @@ class TransactionController extends Controller
                 'product_id' => $value,
                 'quantity' => $request->quantity[$key],
                 'subtotal' => $request->subtotal[$key],
+            ]);
+            Product::find($value)->update([
+                'stock' => Product::find($value)->stock - $request->quantity[$key],
             ]);
         }
 

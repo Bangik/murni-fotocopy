@@ -42,18 +42,18 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$detail->product->name}}</td>
                                             <td>{{$detail->quantity}}</td>
-                                            <td>{{$detail->subtotal}}</td>
+                                            <td>@currency($detail->subtotal)</td>
                                         </tr>
                                         @endforeach                                       
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <td colspan="3">Total</td>
-                                            <td>{{$transaction->total}}</td>                                          
+                                            <td>@currency($transaction->total)</td>                                          
                                         </tr>
                                         <tr>
                                             <td colspan="3">Bayar</td>
-                                            <td>{{$transaction->pay}}</td>
+                                            <td>@currency($transaction->pay)</td>
                                         </tr>
                                         <tr>
                                             @if($transaction->changes >= 0)
@@ -61,7 +61,7 @@
                                             @else
                                             <td colspan="3">Kurang</td>
                                             @endif
-                                            <td>{{$transaction->changes}}</td>
+                                            <td>@currency($transaction->changes)</td>
                                         </tr>
                                     </tfoot>
                                 </table>
